@@ -6,8 +6,10 @@
 #include <DHT.h>
 #include <Adafruit_Sensor.h>
 
+/////////////////////////////////////////TODO add the password/////////////////////////////////////////////
 const char* ssid = "RAND-MIFI";
-const char* password = "reddeadred";
+const char* password = "pass";
+
 String constatus ;
 WiFiClient client;
 
@@ -56,21 +58,11 @@ void print_wakeup_reason(){
   }
 }
 
-
-
-
-
-
-
-
-
-
-
 void setup() {
 
   Serial.begin(9600);
   delay(1000);
-
+  //Count the boot cycles
   ++bootCount;
   Serial.println("Boot number: " + String(bootCount));
 
@@ -92,6 +84,7 @@ void setup() {
 
   ////////////////////FUNCTION CODES///////////////////////
 
+  //BMP
   TempBMP = bmp.readTemperature();
   Serial.print("Temperature_BMP = ");
   Serial.print(TempBMP);
@@ -152,11 +145,8 @@ Serial.flush();
 esp_deep_sleep_start();
 
 }
-  
-void loop() {
+
+
+void loop(){
 
 }
-
-
-
-
